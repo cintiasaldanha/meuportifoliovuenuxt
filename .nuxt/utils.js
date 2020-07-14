@@ -150,7 +150,7 @@ export async function setContext (app, context) {
       payload: context.payload,
       error: context.error,
       base: '/',
-      env: {}
+      env: {"alunos":[{"id":1,"nome":"Cintia Saldanha","habilidades":"CSM® | CSPO® | Especialista em Desenvolvimento de Aplicações para Dispositivos Móveis","experiencia":"Banco Mercantil do Brasil - Desde Junho 2011 - Responsável pelo desenvolvimento da solução Mobile Banking","lnkLinkedin":"https://www.linkedin.com/in/cintia-saldanha-057b1a3b//"},{"id":2,"nome":"Rubens Agnelo","habilidades":"Especialista em Desenvolvimento de Aplicações para Dispositivos Móveis","experiencia":"Banco Mercantil do Brasil - Desde Junho 2010 - Responsável pelo desenvolvimento da solução Mobile Banking","lnkLinkedin":"https://br.linkedin.com/in/rubensagnelo"}]}
     }
     // Only set once
     if (!process.static && context.req) {

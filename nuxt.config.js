@@ -3,7 +3,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'meuportifolio',
+    title: 'Nuxt - Portifólio',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -34,6 +34,20 @@ module.exports = {
         })
       }
     }
+  },
+    env: {
+      alunos: [
+        { id: 1, nome: 'Cintia Saldanha', habilidades: 'CSM® | CSPO® | Especialista em Desenvolvimento de Aplicações para Dispositivos Móveis' , experiencia: 'Banco Mercantil do Brasil - Desde Junho 2011 - Responsável pelo desenvolvimento da solução Mobile Banking', lnkLinkedin:'https://www.linkedin.com/in/cintia-saldanha-057b1a3b//'},
+        { id: 2, nome: 'Rubens Agnelo', habilidades: 'Especialista em Desenvolvimento de Aplicações para Dispositivos Móveis', experiencia:'Banco Mercantil do Brasil - Desde Junho 2010 - Responsável pelo desenvolvimento da solução Mobile Banking',lnkLinkedin:'https://br.linkedin.com/in/rubensagnelo'}
+      ]
+    },
+    generate: {
+      routes: [
+        '/1',
+        '/2'
+      ]
+    }
   }
-}
+  
+
 

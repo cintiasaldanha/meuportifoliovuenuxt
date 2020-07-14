@@ -1,8 +1,24 @@
 [
   {
-    "name": "index",
     "path": "/",
-    "component": "c:\\\\Source\\\\meuportifoliovue\\\\pages\\\\index.vue",
-    "chunkName": "pages/index"
+    "component": "C:\\\\Source\\\\meuportifoliovue\\\\pages\\\\index.vue",
+    "chunkName": "pages/index",
+    "children": [
+      {
+        "name": "index",
+        "path": "",
+        "component": "C:\\\\Source\\\\meuportifoliovue\\\\pages\\\\index\\\\index.vue",
+        "chunkName": "pages/index/index",
+        "_name": "_ca7998e8"
+      },
+      {
+        "name": "index-id",
+        "path": ":id",
+        "component": "C:\\\\Source\\\\meuportifoliovue\\\\pages\\\\index\\\\_id.vue",
+        "chunkName": "pages/index/_id",
+        "_name": "_0060a8f4"
+      }
+    ],
+    "_name": "_df58cf94"
   }
 ]

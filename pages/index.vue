@@ -1,82 +1,89 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        Meu Portifólio
-      </h1>
-      <div>
-        <img class="img-perfil" src="..\static\Perfil.png"  alt="Perfil" /> 
-      </div>      
-      <div class="links">
-        <a
-          href="https://www.linkedin.com/in/cintia-saldanha-057b1a3b//"
-          target="_blank"
-          class="button--green">Cintia Saldanha</a>
-        <a
-          href="https://github.com/cintiasaldanha/meuportifolionuxt"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-      <div>
-        <p>CSM® | CSPO® | Especialista em Desenvolvimento de Aplicações para Dispositivos Móveis</p>
-        <p>Pós-Graduação em Desenvolvimento de Aplicações para Dispositivos Móveis - PUC/MG - 2016 – 2017</p>
-        <p>Bacharel em Ciência da Computação - UFMG - 1994 – 1997</p>
-      </div>
-      <h2 class="subtitle">
-        Experiências e Habilidades
+  <div class="container">
+    <div class="left">
+      <h2>
+        <NuxtLink  to="/">
+          <p>Arquitetura de Sistemas Distribuídos - IEC/PUC - Oferta 13</p>
+          <p>Alunos</p> 
+        </NuxtLink>
       </h2>
-      <div class="div-habilidades">        
-        <p>Empresa: Banco Mercantil do Brasil</p>
-        <p>Cargo: Analista de Sistemas Sênior</p>
-        <p>Jun. de 2011 – o momento</p>
-        <p>Atividades:</p>
-        <p>- Responsável pelo desenvolvimento e manutenção do Mobile Banking – app e serviços que compõem a solução do Banco Mercantil para dispositivos móveis: levantamento e especificação de requisitos com adoção de práticas ágeis / proposição e definição de arquitetura de projetos, com experiência em padrões SOA, APIs Restfull, Azure Cloud Services, .Net e Java.</p>
-        <p>- Atuação na solução Internet Banking: levantamento e especificação de requisitos /proposição e definição de arquitetura em ambiente compostos por componentes .Net e Java / testes funcionais.</p>
-        <p>- Atuação em desenvolvimento de funcionalidades que compõem sistemas de automação bancária: rede de agências e redes parceiras de autoatendimento.</p>
-      </div>
+      <ul class="alunos">
+        <li v-for="aluno in alunos" :key="aluno.id">
+          <NuxtLink :to="'/'+aluno.id">
+            {{ aluno.nome }}
+          </NuxtLink>
+        </li>
+      </ul>
     </div>
-  </section>
+    <div class="right">
+      <NuxtChild :key="$route.params.id" />
+    </div>
+  </div>
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
-
 export default {
-  components: {
-    AppLogo
+  asyncData ({ env }) {
+    return { alunos: env.alunos }
   }
 }
 </script>
 
-<style>
+<style scoped>
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .4s, transform .4s;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  opacity: 1;
+}
+.page-enter, .page-leave-active {
+  opacity: 0.5;
+  transform: rotateY(100deg);
+}
 .container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
 }
-
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
+.left {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.right {
+  width: 50%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.alunos {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.alunos li a {
   display: block;
-  font-weight: 300;
-  font-size: 50px;
-  color: #35495e;
-  letter-spacing: 1px;
+  border: 2px #ddd solid;
+  padding: 10px;
+  text-align: left;
+  color: rgb(50, 148, 155);
+  text-decoration: none;
+}
+.alunos li a:hover {
+  color: fuchsia;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 32px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.tituloCurso{
+  color: rgb(50, 148, 155);
 }
 
-.links {
-  padding-top: 15px;
+h2 {
+  color: rgb(50, 148, 155);
 }
+
+
 </style>
-
